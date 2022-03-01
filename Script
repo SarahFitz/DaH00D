@@ -1,0 +1,1310 @@
+local Players = game:GetService('Players')
+local Player = Players.LocalPlayer
+if (Player):IsInGroup(6516269) then
+
+local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+    Title = "Thanks!";
+    Text = "Thanks for using FrostyHub Beta! Enjoy! Loading Scripts...";
+    Duration = 15;
+})
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/Commands/main/Main"))()
+
+getgenv().Values = {
+  ESP = false,
+  CollectCash = false,
+  MoneyDrop = false,
+  Reach = false,
+  AutoStomp = false
+}
+
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local win = DiscordLib:Window("FrostyHub")
+
+local serv = win:Server("Stuff", "")
+
+local ourscripts = serv:Channel("Combat")
+
+ourscripts:Toggle("Esp",false,function(val)
+  getgenv().Values.ESP = val
+  if getgenv().Values.ESP == true then
+  for i , v in pairs(game.Players:GetChildren()) do 
+      if not v.Character:FindFirstChild("Head"):FindFirstChild("BillboardGui") then
+      local BillboardGui = Instance.new("BillboardGui")
+      local TextLabel = Instance.new("TextLabel")
+      
+      BillboardGui.ResetOnSpawn = false
+      BillboardGui.Parent = v.Character.Head
+      BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+      BillboardGui.Active = true
+      BillboardGui.AlwaysOnTop = true
+      BillboardGui.LightInfluence = 1.000
+      BillboardGui.Size = UDim2.new(4 ,0, 1, 0)
+      BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
+      
+      TextLabel.Parent = BillboardGui
+      TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+      TextLabel.BackgroundTransparency = 1.000
+      TextLabel.Size = UDim2.new(1, 0, 1, 0)
+      TextLabel.Font = Enum.Font.TitilliumWeb
+      TextLabel.Text = v.DisplayName .."(@" .. v.Name..")"
+      TextLabel.TextColor3 = Color3.fromRGB(51, 255, 58)
+      TextLabel.TextSize = 20
+      TextLabel.TextWrapped = false
+      else
+          return
+      end
+  end
+else
+  for i , v in pairs(game.Players:GetChildren()) do
+      if v.Character:FindFirstChild("Head"):FindFirstChild("BillboardGui")then
+      v.Character:FindFirstChild("Head"):FindFirstChild("BillboardGui"):Destroy()
+      end
+  end
+end;
+
+end)
+
+ourscripts:Seperator()
+
+ourscripts:Button("Gun GodMode (Will lose guns)", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/knnegYBS"))();
+
+end)
+
+ourscripts:Seperator()
+
+ourscripts:Button("ToolPick (Picks up tools)", function()
+  for i , v in pairs(game:GetService("Workspace").Ignored.ItemsDrop:GetChildren()) do
+    for i , val in pairs(v:GetChildren()) do 
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,val.Handle, 0)
+    end
+    end;
+
+end)
+
+ourscripts:Seperator()
+
+ourscripts:Toggle("AutoStomp",false,function(v)
+  getgenv().Values.AutoStomp = v
+  repeat
+    wait()
+game:GetService("ReplicatedStorage").MainEvent:FireServer("Stomp")
+    until
+      getgenv().Values.AutoStomp == false
+end);
+
+ourscripts:Button("Anti Stomp (Can't Turn Off)", function()
+local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+	
+		game.StarterGui:SetCore("SendNotification", {
+			Title = ".gg/GKqVZf2Y3s";
+			Text = "Anti stomp enabled."
+		})
+		pcall(function() if tostring(game.PlaceId) == "2788229376" then local corepackages = game:GetService"CorePackages" local localplayer = game:GetService"Players".LocalPlayer local run = game:GetService"RunService" run:BindToRenderStep("rrrrrrrrrrr",2000,function() pcall(function() if localplayer.Character.Humanoid.Health <= 30 then localplayer.Character.Humanoid:UnequipTools() localplayer.Character.Humanoid:Destroy() workspace.CurrentCamera.CameraSubject = localplayer.Character wait() local prt = Instance.new("Model", corepackages); Instance.new("Part", prt).Name="Torso"; Instance.new("Part", prt).Name="Head"; Instance.new("Humanoid", prt).Name="Humanoid"; localplayer.Character=prt end end) pcall(function() if localplayer.Character.Humanoid.FloorMaterial == "Plastic" then ReplicatedStorage:FireServer("Stomp") end end) end) 
+			end end);
+
+end)
+
+ourscripts:Button("No SlowDown", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/RxZnBvdk"))();
+
+end)
+
+ourscripts:Button("No Jump Cooldown", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xaxaxaxaxaxaxaxaxa/Da-Hood-Scripts/main/No-Jump-Cooldown.lua"))();
+
+end)
+
+ourscripts:Button("Reach", function(f)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hax0963/DaHoodReach/main/Main"))()
+end);
+
+
+ourscripts:Seperator()
+
+ourscripts:Label("Aim")
+
+ourscripts:Button("Dot Aimlock (Z)", function()
+
+WhiteList = {
+3222362538,
+3222362538, --Idk Maybe alt ^^^
+903327775, --Hax0963
+243176664, --Snow Alt
+243756256, --Sarah
+666447670, --Snow
+
+
+
+}
+
+if table.find(WhiteList, game:GetService("Players").LocalPlayer.UserId) then
+local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+	Title = "Dot Aimlock";
+	Text = "Have to have cursor on person and then press z, If the green dot appears you've locked onto them";
+	Duration = 15;
+})    
+    
+
+loadstring(game:HttpGet("https://pastebin.com/raw/iALHGfEz"))()
+else
+    local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+	Title = "WhiteListed";
+	Text = "You're not whitelisted, Please dm KaiW, FrostyW or AntiFrosty to buy or to get whitelisted";
+	Duration = 15;
+})    
+end;
+
+end)
+
+ourscripts:Seperator()
+
+ourscripts:Label("Gui's")
+
+ourscripts:Button("Animation Gamepass", function()
+while true do
+	loadstring(game:HttpGet("https://pastebin.com/raw/VYmktrPJ"))()
+    wait(15) 
+end;
+
+end)
+
+ourscripts:Seperator()
+
+ourscripts:Label("Chat")
+
+ourscripts:Button("ChatLogs", function()
+local Players, SGui = game:GetService("Players"), game:GetService("StarterGui");
+local Client, NColor3, UD, UD2 = Players.LocalPlayer, Color3.new, UDim.new, UDim2.new
+
+local function ChatSpy()
+   local ChatSpyFrame = Client.PlayerGui.Chat.Frame
+   ChatSpyFrame.ChatChannelParentFrame.Visible = true
+   ChatSpyFrame.ChatBarParentFrame.Position = ChatSpyFrame.ChatChannelParentFrame.Position + UD2(UD(), ChatSpyFrame.ChatChannelParentFrame.Size.Y)
+end -- brings back chat for games that remove it
+ChatSpy()
+
+getgenv().ShowHiddenMsg = function(T, C)
+   SGui:SetCore("ChatMakeSystemMessage", {
+       Text = T;
+       Color = C;
+   })
+end
+getgenv().Spy = function(Target)
+   Target.Chatted:Connect(function(Msg)
+       if string.find(Msg, "/e ") or string.find(Msg, "/w ") or string.find(Msg, "/whisper ") then
+           ShowHiddenMsg("{SPY}: ".."["..tostring(Target).."]: "..Msg, NColor3(255,255,255)) -- https://www.rapidtables.com/web/color/RGB_Color.html if you want to change the color of the hidden msg's
+       end
+   end)
+end
+
+local GP = Players:GetPlayers()
+for i = 1, #GP do
+   local Plr = GP[i]
+   if tostring(Plr) then
+       Spy(Plr)
+   end
+end
+Players.PlayerAdded:Connect(function(P)
+   if tostring(P) then
+       Spy(P)
+   end
+end);
+
+end)
+
+local ourscripts = serv:Channel("Anti Stuff")
+
+ourscripts:Button("Anti-Flashbang", function(f)
+  while wait() do
+    pcall(function()
+        game.Players.LocalPlayer.PlayerGui.MainScreenGui.whiteScreen:Destroy()
+    end)
+  end
+end);
+
+ourscripts:Button("Anti-Pepperspray", function(f)
+  game.Players.LocalPlayer.PlayerGui.MainScreenGui.PepperSpray:Destroy()
+end);
+
+ourscripts:Button("Anti-Fog", function(f)
+    game.Lighting.FogEnd = math.huge
+end);
+
+ourscripts:Button("Anti-Bag", function(f)
+while true do
+    wait()
+    for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("MeshPart") and v.Name == "Christmas_Sock" then
+            v:Destroy()
+        end
+    end
+
+    game.Players.LocalPlayer.Character.ChildAdded:Connect(
+        function(sock)
+            if sock:IsA("MeshPart") and sock.Name == "Christmas_Sock" then
+                sock:Destroy()
+            end
+        end
+    )
+  end
+end);
+
+local ourscripts = serv:Channel("Cash :)")
+
+ourscripts:Slider("CASH AMOUNT", 0, 10000, 100,function(v)
+        getgenv().Values.cashamount = v
+end)
+
+ourscripts:Toggle("Cash Aura",false,function(v)
+  getgenv().Values.CollectCash = v
+  repeat
+    wait()
+for i , v in pairs(game:GetService("Workspace").Ignored.Drop:GetChildren()) do
+if v.Name == "MoneyDrop" then
+  if (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Position).Magnitude < 18 then 
+                fireclickdetector(v.ClickDetector)
+            end
+        end
+    end
+    until
+      getgenv().Values.CollectCash == false
+end);
+
+ourscripts:Seperator()
+
+ourscripts:Toggle("Auto Drop Cash",false,function(v)
+getgenv().Values.DropCash = v 
+repeat
+wait()
+game.ReplicatedStorage:WaitForChild("MainEvent"):FireServer("DropMoney",	getgenv().Values.cashamount)
+until
+getgenv().Values.DropCash == false
+end);
+
+ourscripts:Button("Cash on Ground Gui", function()
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.8, 0, 0.7, 0)
+Frame.Size = UDim2.new(0, 266, 0, 57)
+
+UICorner.Parent = Frame
+
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(35, 38, 220)
+Frame_2.BorderColor3 = Color3.fromRGB(55, 37, 255)
+Frame_2.Size = UDim2.new(0, 266, 0, 5)
+
+UICorner_2.CornerRadius = UDim.new(0, 50)
+UICorner_2.Parent = Frame_2
+
+TextLabel.Parent = Frame_2
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0, 0, 1.39999998, 0)
+TextLabel.Size = UDim2.new(0, 266, 0, 50)
+TextLabel.Font = Enum.Font.SciFi
+TextLabel.Text = "$"
+TextLabel.TextColor3 = Color3.fromRGB(35, 38, 220)
+TextLabel.TextSize = 25.000
+TextLabel.TextWrapped = true
+
+UICorner_3.Parent = TextLabel
+
+coroutine.resume(coroutine.create(function()
+	while wait() do 
+		local cash = 0 
+		for i,v in pairs(game.Workspace.Ignored.Drop:GetDescendants()) do 
+			if v.Name == "TextLabel" then 
+				local new = string.split(v.Text,"$")[2] 
+				local final if string.match(new,",") then 
+					final = new:gsub("%,","") else 
+					final = new end new = final new = tonumber(new) cash = cash + new 
+			end 
+		end 
+		local function numform(num2) num2 = tostring(num2) 
+			return num2:reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "") 
+		end 
+		TextLabel.Text = "$"..numform(cash) 
+	end 
+end));
+
+end)
+
+local ourscripts = serv:Channel("AutoBuys")
+
+for i , v in pairs(game:GetService("Workspace").Ignored.Shop:GetChildren()) do
+    ourscripts:Button(v.Name, function()
+    ourscripts:Seperator()
+        local old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Head.CFrame + Vector3.new(0,2,0)
+        wait(0.30)
+        fireclickdetector(v.ClickDetector)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
+    end)
+end
+
+local ourscripts = serv:Channel("Extra Scripts")
+
+ourscripts:Label("Audio Logger")
+
+ourscripts:Button("Edge's Audio Logger", function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/RxZnBvdk'),true))();
+
+end)
+
+ourscripts:Seperator()
+
+ourscripts:Label("AntiCheat (Recommended)")
+
+ourscripts:Button("SteFunks AntiCheat", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Games/Da%20Hood/AntiCheatBypass.lua"))();
+
+end)
+
+ourscripts:Seperator()
+
+ourscripts:Label("Side")
+
+ourscripts:Button("Fly (X)", function()
+local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+	Title = "Fixed!";
+	Text = "Fly is working now!";
+	Duration = 15;
+})
+
+local L_152_
+	local L_153_ = game.Players.LocalPlayer
+	IYMouse = L_153_:GetMouse()
+	IYMouse.KeyDown:connect(
+            function(L_154_arg0)
+		if L_154_arg0 == "x" then
+			if L_152_ then
+				L_152_ = false
+				fly()
+			else
+				L_152_ = true
+				NOFLY()
+			end
+		end
+	end
+        )
+	for L_155_forvar0, L_156_forvar1 in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+		if L_156_forvar1:IsA("BasePart") and L_156_forvar1.CanCollide == true then
+			L_156_forvar1.CanCollide = false
+		end
+	end
+	FLYING = false
+	QEfly = true
+	iyflyspeed = 7
+	vehicleflyspeed = 7
+	function sFLY(L_157_arg0)
+		repeat
+			wait()
+		until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and
+                game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+		repeat
+			wait()
+		until IYMouse
+		local L_158_ = game.Players.LocalPlayer.Character.LowerTorso
+		local L_159_ = {
+			F = 0,
+			B = 0,
+			L = 0,
+			R = 0,
+			Q = 0,
+			E = 0
+		}
+		local L_160_ = {
+			F = 0,
+			B = 0,
+			L = 0,
+			R = 0,
+			Q = 0,
+			E = 0
+		}
+		local L_161_ = 5
+		local function L_162_func()
+			FLYING = true
+			local L_163_ = Instance.new("BodyGyro", L_158_)
+			local L_164_ = Instance.new("BodyVelocity", L_158_)
+			L_163_.P = 9e4
+			L_163_.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+			L_163_.cframe = L_158_.CFrame
+			L_164_.velocity = Vector3.new(0, 0, 0)
+			L_164_.maxForce = Vector3.new(9e9, 9e9, 9e9)
+			spawn(
+                    function()
+				repeat
+					wait()
+					if not L_157_arg0 and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then
+						game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").PlatformStand =
+                                    true
+					end
+					if L_159_.L + L_159_.R ~= 0 or L_159_.F + L_159_.B ~= 0 or L_159_.Q + L_159_.E ~= 0 then
+						L_161_ = 50
+					elseif not (L_159_.L + L_159_.R ~= 0 or L_159_.F + L_159_.B ~= 0 or L_159_.Q + L_159_.E ~= 0) and L_161_ ~= 0 then
+						L_161_ = 0
+					end
+					if L_159_.L + L_159_.R ~= 0 or L_159_.F + L_159_.B ~= 0 or L_159_.Q + L_159_.E ~= 0 then
+						L_164_.velocity =
+                                    (workspace.CurrentCamera.CoordinateFrame.lookVector * (L_159_.F + L_159_.B) +
+                                    workspace.CurrentCamera.CoordinateFrame *
+                                        CFrame.new(L_159_.L + L_159_.R, (L_159_.F + L_159_.B + L_159_.Q + L_159_.E) * 0.2, 0).p -
+                                    workspace.CurrentCamera.CoordinateFrame.p) *
+                                    L_161_
+						L_160_ = {
+							F = L_159_.F,
+							B = L_159_.B,
+							L = L_159_.L,
+							R = L_159_.R
+						}
+					elseif L_159_.L + L_159_.R == 0 and L_159_.F + L_159_.B == 0 and L_159_.Q + L_159_.E == 0 and L_161_ ~= 0 then
+						L_164_.velocity =
+                                    (workspace.CurrentCamera.CoordinateFrame.lookVector * (L_160_.F + L_160_.B) +
+                                    workspace.CurrentCamera.CoordinateFrame *
+                                        CFrame.new(L_160_.L + L_160_.R, (L_160_.F + L_160_.B + L_159_.Q + L_159_.E) * 0.2, 0).p -
+                                    workspace.CurrentCamera.CoordinateFrame.p) *
+                                    L_161_
+					else
+						L_164_.velocity = Vector3.new(0, 0, 0)
+					end
+					L_163_.cframe = workspace.CurrentCamera.CoordinateFrame
+				until not FLYING
+				L_159_ = {
+					F = 0,
+					B = 0,
+					L = 0,
+					R = 0,
+					Q = 0,
+					E = 0
+				}
+				L_160_ = {
+					F = 0,
+					B = 0,
+					L = 0,
+					R = 0,
+					Q = 0,
+					E = 0
+				}
+				L_161_ = 0
+				L_163_:destroy()
+				L_164_:destroy()
+				if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then
+					game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").PlatformStand = false
+				end
+			end
+                )
+		end
+		IYMouse.KeyDown:connect(
+                function(L_165_arg0)
+			if L_165_arg0:lower() == "w" then
+				if L_157_arg0 then
+					L_159_.F = vehicleflyspeed
+				else
+					L_159_.F = iyflyspeed
+				end
+			elseif L_165_arg0:lower() == "s" then
+				if L_157_arg0 then
+					L_159_.B = -vehicleflyspeed
+				else
+					L_159_.B = -iyflyspeed
+				end
+			elseif L_165_arg0:lower() == "a" then
+				if L_157_arg0 then
+					L_159_.L = -vehicleflyspeed
+				else
+					L_159_.L = -iyflyspeed
+				end
+			elseif L_165_arg0:lower() == "d" then
+				if L_157_arg0 then
+					L_159_.R = vehicleflyspeed
+				else
+					L_159_.R = iyflyspeed
+				end
+			elseif QEfly and L_165_arg0:lower() == "e" then
+				if L_157_arg0 then
+					L_159_.Q = vehicleflyspeed * 2
+				else
+					L_159_.Q = iyflyspeed * 2
+				end
+			elseif QEfly and L_165_arg0:lower() == "q" then
+				if L_157_arg0 then
+					L_159_.E = -vehicleflyspeed * 2
+				else
+					L_159_.E = -iyflyspeed * 2
+				end
+			end
+		end
+            )
+		IYMouse.KeyUp:connect(
+                function(L_166_arg0)
+			if L_166_arg0:lower() == "w" then
+				L_159_.F = 0
+			elseif L_166_arg0:lower() == "s" then
+				L_159_.B = 0
+			elseif L_166_arg0:lower() == "a" then
+				L_159_.L = 0
+			elseif L_166_arg0:lower() == "d" then
+				L_159_.R = 0
+			elseif L_166_arg0:lower() == "e" then
+				L_159_.Q = 0
+			elseif L_166_arg0:lower() == "q" then
+				L_159_.E = 0
+			end
+		end
+            )
+		L_162_func()
+	end
+	function NOFLY()
+		FLYING = false
+		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").PlatformStand = true
+	end
+	function fly()
+		NOFLY()
+		wait()
+		sFLY()
+	end
+L_14_:NewButton(
+    "WalkSpeed",
+    "Key is N Arrow Key up to go faster down slower",
+    function()
+	IsFirstPerson = false
+	ShiftHeld = false
+	WHeld = false
+	SHeld = false
+	AHeld = false
+	DHeld = false
+	local L_167_ = true
+	urspeed = 0.1
+	function ChangeFaster(L_168_arg0, L_169_arg1)
+		if L_168_arg0.KeyCode == Enum.KeyCode.Down and L_169_arg1 == false then
+			urspeed = urspeed - 0.01
+		end
+	end
+	function ChangeSlower(L_170_arg0, L_171_arg1)
+		if L_170_arg0.KeyCode == Enum.KeyCode.Up and L_171_arg1 == false then
+			urspeed = urspeed + 0.01
+		end
+	end
+	function GChecker(L_172_arg0, L_173_arg1)
+		if L_172_arg0.KeyCode == Enum.KeyCode.N and L_173_arg1 == false then
+			if L_167_ == false then
+				L_167_ = true
+			elseif L_167_ == true then
+				L_167_ = false
+			end
+		end
+	end
+end);
+
+end)
+
+ourscripts:Button("Walkspeed (Q)", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/QW5Whap9"))();
+
+end)
+
+ourscripts:Button("TrashTalk (C)", function()
+
+local words = {
+    'ur bad',
+    'ur dog🐶',
+    'aim left faster then your dad🍼',
+    'my grandma is better then you',
+    'clowned🤡',
+    'sonned🤓',
+    'your dog water🐶🌊', 
+    'son ur dog quit crying', 
+    'my grandmother can aim better',
+    'you are actual dog get airshot buddy',
+    'bro isnt a clown hes the entire circus🤡🍿🍦🎪🎈',
+    'bro isnt a clown nor the circus dude is the entire comical industry🤡🍿🎪🎈',
+    'you suck bro', 
+    'wyd bro aiming is ez 😅', 
+    'dude why are u so bad😂😂',
+    'dude quit being free', 
+    'ur clowning bro wyd🥱',
+    'just aim dude😑',
+    'bro trickshot the wall',
+    'bro the wall must hurt rn😞',
+    'rodent🐭', 
+    'no one likes u🤨', 
+    'you were so close! better luck next time!😣', 
+    'XD😂', 
+    'no skill😮',
+    'why do u even try😂',
+    'if the body is 70% water how are u 100% salt 🤨', 
+    './e dab', 
+    'time to take out the trash! 🙄🗑', 
+    'im surprised you havent rage quit yet😂', 
+    'bro quit crying and get better😴', 
+    'haha I won🤓🤓', 
+    'trash🗑', 
+    'ez', 
+    'salty', 
+    'did you get worse?🤨',
+    'why are u still trying bro😂', 
+    'dude just quit already😂', 
+    'looolloolloololl', 
+    'bro has bipolar aim 🤡🤓', 
+    '😴😴😴😴',
+}
+local player = game.Players.LocalPlayer
+local keybind = 'c'
+
+local event = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+player:GetMouse().KeyDown:connect(function(key)
+    if key == keybind then
+        event:FireServer(words[math.random(#words)], "All")
+    end
+end);
+
+end)
+
+ourscripts:Label("Other Seller Tools")
+
+
+ourscripts:Button("Devenire's DHC Script", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/DeVenire/cash/main/CashToolBETA.lua'))();
+
+end)
+
+ourscripts:Button("Raycodex's DHC Script", function()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Raycodex/Exploiting/main/Roblox/Da%20Hood%20Auto%20Cash%20Drop"), true))()
+
+end)
+
+local other = serv:Channel("Character")
+
+other:Label("Clothing")
+
+other:Button("Korblox (Client Sided)", function()
+	local ply = game.Players.LocalPlayer
+	local chr = ply.Character
+	chr.RightLowerLeg.MeshId = "902942093"
+	chr.RightLowerLeg.Transparency = "1"
+	chr.RightUpperLeg.MeshId = "http://www.roblox.com/asset/?id=902942096"
+	chr.RightUpperLeg.TextureID = "http://roblox.com/asset/?id=902843398"
+	chr.RightFoot.MeshId = "902942089"
+	chr.RightFoot.Transparency = "1";
+
+end)
+
+other:Button("Headless (Client Sided)", function()
+    getgenv().game.Players.LocalPlayer.Character.Head.Transparency = 1
+    getgenv().game.Players.LocalPlayer.Character.Head.face:Destroy()
+    getgenv().game.Players.LocalPlayer.Character.Head.face:Destroy();
+
+end)
+
+ourscripts:Seperator()
+
+other:Label("Animations")
+
+other:Button("Default (Rthro)", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=2510196951"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=2510197257"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=2510202577"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=2510198475"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=2510197830"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=2510192778"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=2510195892"
+
+end)
+
+other:Button("Popstar", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1212900985"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1150842221"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1212980338"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1212980348"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1212954642"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1213044953"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1212900995"
+
+end)
+
+other:Button("Patrol", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1149612882"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1150842221"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1151231493"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1150967949"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1148811837"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1148811837"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1148863382"
+
+end)
+
+other:Button("Confident", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1069977950"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1069987858"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1070017263"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1070001516"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1069984524"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1069946257"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1069973677"
+
+end)
+
+other:Button("Sneaky", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1132473842"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1132477671"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1132510133"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1132494274"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1132489853"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1132461372"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1132469004"
+
+end)
+
+other:Button("Princess", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=941003647"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=941013098"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=941028902"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=941015281"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=941008832"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=940996062"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=941000007"
+
+end)
+
+other:Button("Cowboy", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1014390418"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1014398616"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1014421541"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1014401683"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1014394726"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1014380606"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1014384571"
+
+end)
+
+other:Button("Ghost", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616013216"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616013216"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616008936"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616005863"
+game.Players.LocalPlayer.Character.Animate.swimidle.SwimIdle.AnimationId = "http://www.roblox.com/asset/?id=616012453"
+game.Players.LocalPlayer.Character.Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=616011509"
+
+end)
+
+other:Label("Animations 2")
+ourscripts:Seperator()
+
+other:Button("Ninja", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=656117400"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=656118341"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=656121766"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=656118852"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=656117878"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=656114359"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=656115606"
+
+end)
+
+other:Button("Levitation", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616013216"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616010382"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616008936"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616003713"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616005863"
+
+end)
+
+other:Button("Werewolf", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083195517"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083214717"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083178339"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083216690"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083218792"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083182000"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083189019"
+
+end)
+
+other:Button("Stylish", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616136790"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616138447"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616146177"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616140816"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616139451"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616133594"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616134815"
+
+end)
+
+other:Button("Robot", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616088211"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616089559"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616095330"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616091570"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616090535"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616086039"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616087089"
+
+end)
+
+other:Button("Bubbly", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=910004836"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=910009958"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=910034870"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=910025107"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=910016857"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=910001910"
+game.Players.LocalPlayer.Character.Animate.swimidle.SwimIdle.AnimationId = "http://www.roblox.com/asset/?id=910030921"
+game.Players.LocalPlayer.Character.Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=910028158"
+
+end)
+
+other:Button("Cartoony", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=742637544"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=742638445"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=742640026"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=742638842"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=742637942"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=742636889"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=742637151"
+
+end)
+
+other:Button("Superhero", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616111295"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616113536"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616122287"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616117076"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616115533"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616104706"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616108001"
+
+end)
+
+other:Button("Knight", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=657595757"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=657568135"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=657552124"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=657564596"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=658409194"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=658360781"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=657600338"
+
+end)
+
+other:Button("Zombie", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616158929"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616160636"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616168032"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616163682"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616161997"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616156119"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=616157476"
+
+end)
+
+other:Button("Elder", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=845397899"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=845400520"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=845403856"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=845386501"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=845398858"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=845392038"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=845396048"
+
+end)
+
+other:Button("Mage", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=707742142"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=707855907"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=707897309"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=707861613"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=707853694"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=707826056"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=707829716"
+
+end)
+
+other:Button("Toy", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=782841498"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=782845736"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=782843345"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=782842708"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=782847020"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=782843869"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=782846423"
+
+end)
+
+other:Button("Astronaut", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=891621366"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=891633237"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=891667138"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=891636393"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=891627522"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=891609353"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=891617961"
+
+end)
+
+other:Button("Pirate", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=750781874"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=750782770"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=750785693"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=750783738"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=750782230"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=750779899"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=750780242"
+
+end)
+
+other:Button("Vampire", function()
+game.Players.LocalPlayer.Character.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083445855"
+game.Players.LocalPlayer.Character.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083450166"
+game.Players.LocalPlayer.Character.Animate.walk:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083473930"
+game.Players.LocalPlayer.Character.Animate.run:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083462077"
+game.Players.LocalPlayer.Character.Animate.jump:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083455352"
+game.Players.LocalPlayer.Character.Animate.climb:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083439238"
+game.Players.LocalPlayer.Character.Animate.fall:FindFirstChildWhichIsA("Animation").AnimationId = "http://www.roblox.com/asset/?id=1083443587"
+
+end)
+
+
+local other = serv:Channel("Main Scripts")
+
+other:Label("Main Scripts")
+
+other:Button("KFC Sellers (Gui)", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/Kfc/main/Script"))()
+
+end)
+
+other:Button("RayCodeX", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/RayCodex/main/Script"))()
+
+end)
+
+other:Button("TrustBoy", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/PickleIsDaBest/TrustBoy/main/Script'))()
+
+end)
+
+other:Button("SwagMode", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/PickleIsDaBest/swagmode/main/swagmain'))()
+
+end)
+
+other:Button("PickleAssist", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/PickleAssistCracked/main/Script"))()
+
+end)
+
+other:Button("AtomII", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/AtomII/main/Script"))()
+
+end)
+
+other:Button("Faded", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/Faded/main/Script"))()
+
+end)
+
+other:Button("HydraWare", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/HydraWare/main/HydraWare1"))()
+
+end)
+
+local Ltps = serv:Channel("Legit Teleports")
+
+Ltps:Button("Admin Base", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-800, -39, -887)
+
+end)
+
+Ltps:Seperator()
+
+Ltps:Button("UpHill Food", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(299, 50, -616)
+
+end)
+
+Ltps:Seperator()
+
+Ltps:Button("DownHill Food", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-337, 24, -297)
+
+end)
+
+Ltps:Seperator()
+
+Ltps:Label("Gun Stores")
+
+Ltps:Button("Uphill gunz", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(496.045, 48.003, -594.2)
+
+end)
+
+Ltps:Button("Downhill gunz", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-377.531, 12.7478, -689.086)
+
+end)
+
+
+
+Ltps:Label("Bank / At Bank")
+
+Ltps:Button("Bank Houses", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-321.505, 21.753, -448.8)
+
+end)
+
+Ltps:Button("Bank Houses 2", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-454.455, 21.753, -484.95)
+
+end)
+
+Ltps:Button("At Jewerly", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-613.372, 21.748, -325.45)
+
+end)
+
+Ltps:Button("Hoodkicks", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-190.105, 21.753, -381.75)
+
+end)
+
+Ltps:Button("Flowers and Fire station", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-132.4, 21.748, -231.05)
+
+end)
+
+Ltps:Seperator()
+
+Ltps:Seperator()
+
+Ltps:Label("Downhill")
+
+Ltps:Button("At School", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-404.5, 21.748, 88.1)
+
+end)
+
+Ltps:Button("At School 2", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-735.575, 21.748, 142.325)
+
+end)
+
+Ltps:Button("At Uphill Entrance / Houses", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8.14476, 21.753, -546.75)
+
+end)
+
+Ltps:Button("Da Boxing Club", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.077, 21.753, -1132.4)
+
+end)
+
+Ltps:Button("At Playground", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-142.543, 21.753, -823.192)
+
+end)
+
+
+
+Ltps:Seperator()
+
+Ltps:Label("Uphill")
+
+Ltps:Button("At Apartment", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(418.995, 48.003, -804)
+
+end)
+
+
+
+Ltps:Button("At Restaurant", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(353.995, 48.003, -592.75)
+
+end)
+
+Ltps:Button("Park", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(451.745, 48.003, -399.25)
+
+end)
+
+
+Ltps:Button("Uphill Entrance", function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(211.795, 48.003, -595)
+
+end)
+
+
+
+Ltps:Seperator()
+
+
+
+
+local extra = serv:Channel("Extras")
+
+extra:Button("Rejoin", function()
+wait(0.1)
+
+local ts = game:GetService("TeleportService")
+
+local p = game:GetService("Players").LocalPlayer
+
+ 
+
+ts:Teleport(game.PlaceId, p)
+
+end)
+
+extra:Button("Less Lag", function()
+
+local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = false
+l.FogEnd = 9e9
+l.Brightness = 0
+settings().Rendering.QualityLevel = "Level01"
+for i,v in pairs(g:GetDescendants()) do
+   if v:IsA("Part") or v:IsA("Union") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+       v.Material = "Plastic"
+v.Reflectance = 0
+elseif v:IsA("Decal") and decalsyeeted then
+v.Transparency = 1
+elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+v.Lifetime = NumberRange.new(0)
+elseif v:IsA("Explosion") then
+v.BlastPressure = 1
+v.BlastRadius = 1
+   end
+end
+for i,e in pairs(l:GetChildren()) do
+if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+e.Enabled = false
+end
+end
+
+end)
+
+extra:Button("Server Hop", function()
+
+wait(0.1)
+game:GetService("TeleportService"):Teleport(gameid, game:GetService("Players").LocalPlayer)
+
+end)
+
+extra:Button("Copy FrostyHub's Discord", function()
+
+setclipboard("https://discord.gg/FJY369RSJZ")
+
+CoreGui:SetCore("SendNotification", {
+    Title = "Clipboard Change!",
+    Text = "https://discord.gg/FJY369RSJZ was Copied to your Clipboard!",
+    Duration = 3.5, 
+})
+
+end)
+
+
+extra:Button("Auto Buy Armor", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/sources/main/AutoBuyArmor", true))()
+DiscordLib:Notification("Auto Buy Armor", "Auto Buy Armor was Loaded, Type /e stop for it to Stop buying Armor!", "Okay!")
+
+
+local btns = serv:Channel("Test Buttons")
+
+btns:Label("Test Buttons")
+
+
+btns:Button("Rejoin", function()
+wait(0.1)
+
+local ts = game:GetService("TeleportService")
+
+local p = game:GetService("Players").LocalPlayer
+
+ 
+
+ts:Teleport(game.PlaceId, p)
+
+end)
+end)
+
+window:Server("About", "http://www.roblox.com/asset/?id=6031075938")
+
+while true do
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/EmojiMain/main/Script"))()
+    wait(30) 
+end
+
+while true do
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/PickleIsDaBest/EmojiMain/main/Script"))()
+    wait(30) 
+end
+else
+setclipboard("https://www.roblox.com/groups/6516269/Adopt-me-fans-itk-club#!/about")
+
+local CoreGui = game:GetService("StarterGui")
+
+CoreGui:SetCore("SendNotification", {
+    Title = "Group";
+    Text = "Please join our roblox group to use this script! Group link copied to clipboard, Thanks!";
+    Duration = 60;
+})
+return
+end
